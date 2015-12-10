@@ -16,6 +16,20 @@ Tile.prototype.updatePosition = function (position) {
   this.y = position.y;
 };
 
+Tile.prototype.save = function (next) {
+  var copy = {}
+  copy.x = this.x;
+  copy.y = this.y;
+  copy.value = this.value;
+  copy.previousPosition = {
+    // In order to reverse animation, we store
+    // the next position as the previous
+    x: next.x;
+    y: next.y;
+  }
+  return copy;
+}
+/*
 Tile.prototype.serialize = function () {
   return {
     position: {
@@ -25,3 +39,4 @@ Tile.prototype.serialize = function () {
     value: this.value
   };
 };
+*/
