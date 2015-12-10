@@ -198,6 +198,7 @@ GameManager.prototype.move = function (direction) {
           // The mighty 2048 tile
           if (merged.value === 2048) self.won = true;
         } else {
+          // Save backup information
           undo.tiles.push(tile.save(positions.farthest));
           self.moveTile(tile, positions.farthest);
         }
@@ -215,6 +216,7 @@ GameManager.prototype.move = function (direction) {
     if (!this.movesAvailable()) {
       this.over = true; // Game over!
     }
+    this.undoStack.push(undo);
 
     this.actuate();
   }
