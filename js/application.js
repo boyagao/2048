@@ -3,6 +3,7 @@ window.requestAnimationFrame(function () {
   game_manager = new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
 });
 
-function handle_undo() {
-  game_manager.move(-1);
+
+function click_undo() {
+	game_manager.move(-1);
 }
