@@ -128,8 +128,10 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
 
-  this.messageContainer.classList.add(type);
-  this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+  if (!won) {
+    this.messageContainer.classList.add(type);
+    this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+  }
 };
 
 HTMLActuator.prototype.clearMessage = function () {
