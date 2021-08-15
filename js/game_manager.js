@@ -44,7 +44,7 @@ GameManager.prototype.setup = function () {
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
-    this.keepPlaying = previousState.keepPlaying;
+    this.keepPlaying = true;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
@@ -150,7 +150,7 @@ GameManager.prototype.move = function (direction) {
 		  }
 		  this.over = false;
 		  this.won = false;
-		  this.keepPlaying = false;
+		  this.keepPlaying = true;
 		  this.actuator.continueGame();
 		  this.actuate();
 	  }
